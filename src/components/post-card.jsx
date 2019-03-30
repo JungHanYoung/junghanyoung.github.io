@@ -3,22 +3,26 @@ import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 
 
-const PostCard = ({ title, category = "general", date = new Date().toUTCString(), excerpt, slug }) => {
+const PostCard = ({ title, category = "general", date = new Date().toUTCString(), excerpt, link }) => {
     return (
         <li className="item  item--post">
-            <Link to={slug}>
-                <article className="article  article--post">
+            <article className="article  article--post">
+                <Link to={link}>
                     <h2>{title}</h2>
-                    <small className="small  post-meta">
-                        <span class="label  label--category">
-                            <a href="/categories/#general">{category}</a>
-                        </span>
-                        &nbsp; &nbsp;
+                </Link>
+                <small className="small  post-meta">
+                    <span className="label  label--category">
+                        {category ?
+                            <Link to={`/category/${category}`}>{category}</Link>
+                            :
+                            <Link to={`/category`}>general</Link>
+                        }
+                    </span>
+                    &nbsp; &nbsp;
                         <span className="time">{date}</span>
-                    </small>
-                    <p>{excerpt}</p>
-                </article>
-            </Link>
+                </small>
+                <p>{excerpt}</p>
+            </article>
         </li>
     )
 }
@@ -28,7 +32,7 @@ PostCard.propTypes = {
     category: PropTypes.string,
     date: PropTypes.string,
     excerpt: PropTypes.string,
-    slug: PropTypes.string.isRequired
+    link: PropTypes.string.isRequired
 }
 
 export default PostCard

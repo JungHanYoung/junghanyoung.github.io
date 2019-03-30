@@ -1,19 +1,6 @@
 import React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
 
 const Footer = () => {
-
-    const data = useStaticQuery(graphql`
-        query {
-            site {
-                siteMetadata {
-                    author
-                }
-            }
-        }
-    `)
-
-    const author = data.site.siteMetadata.author
     return (
         <footer className="footer">
             <div className="container">
@@ -23,7 +10,7 @@ const Footer = () => {
                 <nav className="nav  nav--footer">
                     <ul className="list list-nav">
                         <li className="item  item--nav">
-                            {author}
+                            JeongHanYoung
                         </li>
                     </ul>
                 </nav>

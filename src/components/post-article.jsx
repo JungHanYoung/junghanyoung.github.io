@@ -1,10 +1,16 @@
 import React from 'react'
 import { string } from 'prop-types'
 
-const PostArticle = ({ html }) => {
+import MyDisqus from './common/MyDisqus'
+
+const PostArticle = ({ html, id, title }) => {
     return (
         <article className="article article--page content typeset">
             <div dangerouslySetInnerHTML={{ __html: html }}></div>
+            <MyDisqus
+                id={id}
+                title={title}
+            />
         </article>
     )
 }

@@ -2,10 +2,16 @@
 body {
     background: $backgroundColour;
     color: $bodyColour;
-    height: 100%;
+    min-height: 100%;
     display: flex;
     @include flex-direction(column);
     overflow-x: hidden;
+  }
+
+  #___gatsby {
+    position: relative;
+    & > div {
+    }
   }
   
   .container {
@@ -16,6 +22,8 @@ body {
   
   
   // Header, feature and footer
+
+
   .header,
   .footer {
     .nav {
@@ -174,7 +182,6 @@ body {
   .list {
     list-style: none;
     &--nav {
-      overflow: hidden;
       transition: .2s;
     }
     .item--post,
@@ -349,8 +356,7 @@ body {
   select {
     &:focus,
     &:hover:focus {
-      outline: solid .12rem $focusColour;
-      outline-offset: -.12rem;
+
     }
   }
   
@@ -453,3 +459,53 @@ body {
       overflow-x: scroll;
     }
   }
+
+.input {
+  width: 150px;
+  height: 45px;
+  position: relative;
+  border: 1px solid grey;
+  border-radius: 24px;
+  padding: 10px 20px;
+  outline: none;
+}
+
+.search--results {
+  position: absolute;
+  top: 23px;
+  left: 0;
+  list-style: none;
+  padding-top: 22px;
+  border-left: 1px solid grey;
+  border-top: none;
+  .search--result {
+    padding: 10px;
+    background-color: white;
+    .search--result-article {
+      display: flex;
+    }
+  }
+}
+
+.tag--list {
+  .tag--item {
+    display: inline-block;
+    padding: .5rem 1rem;
+    margin: .375rem;
+    background: $white;
+    border: 1px solid $linkColour;
+    color: $bodyColour;
+    text-align: center;
+    border-radius: 1rem;
+
+    &--name {
+      font-size: .875rem;
+      font-weight: bold;
+    }
+    &--count {
+      margin-left: .5rem;
+      font-size: .675rem;
+      color: $captionColour;
+    }
+  }
+}

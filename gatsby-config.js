@@ -1,9 +1,13 @@
 module.exports = {
   siteMetadata: {
-    title: `Hanyoung`,
-    description: ``,
+    title: `Hanyoung's Devook`,
+    description: `Be myself`,
     author: `JeongHanYoung`,
+    disqus: {
+      disqusShortname: "junghanyoung-github-io"
+    }
   },
+  pathPrefix: '/',
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
@@ -25,9 +29,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Hanyoung' blog`,
-        short_name: `starter`,
-        start_url: `/`,
+        name: `Hanyoung' Devook`,
+        short_name: `Web Developer`,
+        start_url: `/githubpage-with-gatsby`,
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
@@ -39,10 +43,19 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
+          `gatsby-remark-embed-youtube`,
+          `gatsby-remark-graphviz`,
+          `gatsby-remark-autolink-headers`,
           {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 590
+            }
+          },
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+
             }
           }
         ]
@@ -50,8 +63,5 @@ module.exports = {
     },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // 'gatsby-plugin-offline',
   ],
 }

@@ -6,14 +6,26 @@ import PostArticle from '../components/post-article'
 import TableOfContents from '../components/table-of-contents'
 
 
-const PostTemplate = ({ data }) => {
+const PostTemplate = ({ data, pageContext }) => {
     const postInfo = data.markdownRemark
-    const { html, frontmatter } = postInfo
+    const { html, frontmatter, headings, id } = postInfo
     const { title } = frontmatter
+
+    const { previous, next } = pageContext
+
     return (
         <Layout>
-            <PostArticle html={html} />
-            <TableOfContents title={title} />
+            <PostArticle
+                html={html}
+                id={id}
+                title={title}
+            />
+            <TableOfContents
+                title={title}
+                previous={previous}
+                next={next}
+                headings={headings}
+            />
         </Layout>
     )
 }
@@ -21,10 +33,15 @@ const PostTemplate = ({ data }) => {
 export const query = graphql`
     query getMarkdownPost($slug: String!) {
         markdownRemark(fields: { slug: { eq: $slug } } ) {
+            id
             frontmatter {
                 title
             }
             html
+            headings {
+                value
+                depth
+            }
         }
     }
 `
