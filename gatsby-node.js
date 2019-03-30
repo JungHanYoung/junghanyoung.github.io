@@ -180,15 +180,11 @@ function createCategoryPages(createPage) {
 function createTagPages(createPage) {
 
     const tags = Object.keys(tagInfo)
-    console.log('totalCount:', tags.reduce((acc, cur) => {
-        return acc + tagInfo[cur].posts.length
-    }, 0))
+
     tags.forEach((tag) => {
 
-        console.log(tag, ':', tagInfo[tag].posts.length)
         const numPages = Math.ceil(tagInfo[tag].posts.length / postsPerPage)
 
-        console.log(tag, numPages)
         Array.from({ length: numPages }).forEach((_, i) => {
             createPage({
                 path: i === 0 ? `/tags/${tag}` : `/tags/${tag}/${i + 1}`,
