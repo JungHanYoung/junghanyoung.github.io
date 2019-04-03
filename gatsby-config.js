@@ -53,6 +53,17 @@ module.exports = {
             }
           },
           {
+            resolve: `gatsby-remark-custom-blocks`,
+            options: {
+              blocks: {
+                collapse: {
+                  title: "optional",
+                  details: true
+                }
+              }
+            }
+          },
+          {
             resolve: `gatsby-remark-prismjs`,
             options: {
 
