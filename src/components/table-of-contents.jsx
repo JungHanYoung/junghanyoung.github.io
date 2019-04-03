@@ -11,7 +11,7 @@ const TableContents = ({ title = "Hello World", previous, next, headings }) => {
             <section className="section section--description">
                 <h3>{title}</h3>
                 <ul className="list">
-                    {headings.map(head => {
+                    {headings.map((head, i) => {
                         const replaceHead =
                             head.value.trim()
                                 .replace('(', '')
@@ -19,8 +19,14 @@ const TableContents = ({ title = "Hello World", previous, next, headings }) => {
                                 .replace('.', '')
                                 .replace(',', '')
                                 .split(' ').join('-')
-                        return <li style={{ paddingLeft: `${15 * (head.depth - 1)}px`, fontSize: '1rem' }}
-                            key={`heading__${replaceHead}`}><a href={`#${replaceHead.toLowerCase()}`}>&rsaquo;&nbsp;{head.value}</a></li>
+                        return <li
+                            style={{ paddingLeft: `${15 * (head.depth - 1)}px`, fontSize: '1rem' }}
+                            key={`heading__${replaceHead}`}
+                        >
+                            <a href={`#${replaceHead.toLowerCase()}`}>
+                                &rsaquo;&nbsp;{head.value}
+                            </a>
+                        </li>
                     })}
                 </ul>
                 <nav className="nav  nav--paginator">
