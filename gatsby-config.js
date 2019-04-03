@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Hanyoung's Devook`,
-    description: `Be myself`,
+    title: `Hanyoung's DevLog`,
+    description: `개발과 관련되어 확인한 개념이나 트릭들을 정리하는 곳입니다!`,
     author: `JeongHanYoung`,
     disqus: {
       disqusShortname: "junghanyoung-github-io"
